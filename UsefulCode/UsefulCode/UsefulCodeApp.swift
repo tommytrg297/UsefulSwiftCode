@@ -11,7 +11,7 @@ import SwiftUI
 struct UsefulCodeApp: App {
     var body: some Scene {
         WindowGroup {
-            StepperView()
+            ImplementingCoreML()
         }
     }
 }

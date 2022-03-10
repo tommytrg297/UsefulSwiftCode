@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652EB13027DA018900B60EFC /* ImplementingCoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EB12F27DA018900B60EFC /* ImplementingCoreML.swift */; };
+		652EB13227DA070200B60EFC /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 652EB13127DA070200B60EFC /* SleepCalculator.mlmodel */; };
 		65DEC36D27D8732B005549D9 /* UsefulCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEC36C27D8732B005549D9 /* UsefulCodeApp.swift */; };
 		65DEC36F27D8732B005549D9 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEC36E27D8732B005549D9 /* StepperView.swift */; };
 		65DEC37127D8732D005549D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65DEC37027D8732D005549D9 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		652EB12F27DA018900B60EFC /* ImplementingCoreML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplementingCoreML.swift; sourceTree = "<group>"; };
+		652EB13127DA070200B60EFC /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 		65DEC36927D8732B005549D9 /* UsefulCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsefulCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DEC36C27D8732B005549D9 /* UsefulCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulCodeApp.swift; sourceTree = "<group>"; };
 		65DEC36E27D8732B005549D9 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
@@ -73,8 +77,10 @@
 		65DEC37A27D877D4005549D9 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				652EB13127DA070200B60EFC /* SleepCalculator.mlmodel */,
 				65DEC36E27D8732B005549D9 /* StepperView.swift */,
 				65DEC37D27D87A02005549D9 /* DatePickerView.swift */,
+				652EB12F27DA018900B60EFC /* ImplementingCoreML.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -158,6 +164,8 @@
 			files = (
 				65DEC37E27D87A02005549D9 /* DatePickerView.swift in Sources */,
 				65DEC36F27D8732B005549D9 /* StepperView.swift in Sources */,
+				652EB13027DA018900B60EFC /* ImplementingCoreML.swift in Sources */,
+				652EB13227DA070200B60EFC /* SleepCalculator.mlmodel in Sources */,
 				65DEC36D27D8732B005549D9 /* UsefulCodeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
