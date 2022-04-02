@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
 
 struct ContentView: View {
     @State var dailyUsers = 56
@@ -100,13 +99,9 @@ struct ProgressBar : View {
                         .opacity(1)
                         .foregroundColor(.green)
                 }
-            
             }
             .cornerRadius(7)
-
-            
-            
-            
+ 
         }
         
     }

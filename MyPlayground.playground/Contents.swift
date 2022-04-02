@@ -3,11 +3,13 @@ import Foundation
 import Darwin
 
 
-func getUser() -> (String,String) {
-    ("Tammy","Taylor")
+protocol Vehicle{
+    func estimateTime(for distance:Int)-> Int
+    
+    func travel(distance:Int)
+    
+    
 }
-
-
-let (firstname,_) = getUser()
-
-print(firstname)
+func commute(distance:Int, using vehicle:Car) {
+    
+}
