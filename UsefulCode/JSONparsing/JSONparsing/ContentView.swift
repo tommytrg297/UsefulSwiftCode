@@ -9,7 +9,7 @@ import SwiftUI
 
 //the very unique ShuttleTracker
 
-struct Milestone:Codable {
+/*struct Milestone:Codable {
     var id:UUID
     var name:String
     var extendedDescription : String
@@ -18,19 +18,27 @@ struct Milestone:Codable {
     var goals:[Int]
     var signature:Data
 }
+*/
+
 struct ContentView: View {
     
-    @State var milestones = [Milestone]()
+    // @State var milestones = [Milestone]()
     
     var body: some View {
-            List(milestones, id :\.id) { item in
+        VStack {
+            Text("OK")
+                .padding()
+        }
+                
+        
+           /* List(milestones, id :\.id) { item in
                 VStack(alignment: .leading) {
                     Text("Total amount of milestones : \(milestones[1].name)")
                     Text(item.name)
                     Text("Our progress is : \(item.progress)")
                     Text("The description is \(item.progressType)")
                     }
-                }
+            }
             .task {
                 await loadData()
             }
@@ -51,7 +59,11 @@ struct ContentView: View {
             print("INVALID DATA")
         }
     }
+    */
+    }
 }
+            
+ 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

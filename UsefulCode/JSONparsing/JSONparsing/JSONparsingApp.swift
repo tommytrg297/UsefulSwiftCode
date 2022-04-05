@@ -11,7 +11,7 @@ import SwiftUI
 struct JSONparsingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            APIcall()
         }
     }
 }

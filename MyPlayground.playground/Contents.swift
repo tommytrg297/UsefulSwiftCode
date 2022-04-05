@@ -2,14 +2,13 @@ import Cocoa
 import Foundation
 import Darwin
 
+struct Person {
+    let firstName :String
+    let lastName:String
+    let middleName:String?
+}
 
-protocol Vehicle{
-    func estimateTime(for distance:Int)-> Int
-    
-    func travel(distance:Int)
-    
-    
-}
-func commute(distance:Int, using vehicle:Car) {
-    
-}
+let tommy = Person(firstName: "Tommy", lastName: "Truong",middleName: nil )
+
+let firstletter = tommy.middleName?.first
+
