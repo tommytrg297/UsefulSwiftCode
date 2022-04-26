@@ -56,8 +56,6 @@ struct APIcall: View {
             .onAppear {
                 viewModel.fetch()
             }
-
-
         }
     }
 }

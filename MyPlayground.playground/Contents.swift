@@ -1,14 +1,10 @@
-import Cocoa
 import Foundation
 import Darwin
 
-struct Person {
-    let firstName :String
-    let lastName:String
-    let middleName:String?
-}
 
-let tommy = Person(firstName: "Tommy", lastName: "Truong",middleName: nil )
+var x2 = [1,2,3,4,5]
 
-let firstletter = tommy.middleName?.first
+x2.insert(9, at: 0)
+
+print(x2)
 
