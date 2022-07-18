@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
 /*
  Custom Initializer
  Completion Handler (closure)
@@ -29,7 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private var observer:NSObjectProtocol?
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
   

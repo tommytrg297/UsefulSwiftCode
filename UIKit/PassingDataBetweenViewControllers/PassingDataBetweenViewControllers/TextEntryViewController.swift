@@ -34,10 +34,6 @@ class TextEntryViewController: UIViewController {
                                  width: view.frame.size.width - 40,
                                  height: 55)
         field.becomeFirstResponder()
-        
-                                                            
-    
-
     }
     
     @objc private func didTapDoneButton() {

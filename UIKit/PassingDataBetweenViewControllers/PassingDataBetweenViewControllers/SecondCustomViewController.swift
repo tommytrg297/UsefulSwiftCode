@@ -9,8 +9,6 @@ import UIKit
 
 class SecondCustomViewController: UIViewController {
 
-
-    
     private let selectedItem : String
     private let relatedItems: [String]
     
