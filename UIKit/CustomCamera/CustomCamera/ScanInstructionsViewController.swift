@@ -28,6 +28,7 @@ class ScanInstructionsViewController: UIViewController {
         label.text = "Can cuoc cong dan (mac truoc)"
         label.font = .boldSystemFont(ofSize: 10)
         return label
+        
     }()
 
     
