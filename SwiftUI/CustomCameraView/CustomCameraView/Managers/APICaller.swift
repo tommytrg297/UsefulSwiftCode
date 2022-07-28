@@ -39,6 +39,7 @@ final class APICaller {
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
         
         request.httpBody = data
+        
         let task = URLSession.shared.dataTask(with: request) { data, res, error in
             guard let data = data, error == nil else {
                 print("ERROR")
@@ -103,7 +104,7 @@ final class APICaller {
                     let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
                     completion(.success(response.data))
                 } catch  {
-                        print(error)
+                    print(error)
                 }
             }
             task.resume()

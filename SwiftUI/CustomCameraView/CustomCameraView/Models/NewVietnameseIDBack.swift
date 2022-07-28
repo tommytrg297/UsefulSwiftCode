@@ -8,25 +8,20 @@
 struct NewVietnameseIDBack: Codable, Hashable {
     let errorCode: Int
     let errorMessage: String
-    let data: [Datumm]
+    let data: [NewVietnameseIDBackData]
 }
 
 // MARK: - Datum
-struct Datumm: Codable, Hashable {
-    let religionProb, religion, ethnicityProb, ethnicity: String
+struct NewVietnameseIDBackData: Codable, Hashable {
+
     let features, featuresProb, issueDate, issueDateProb: String
-    let issueLOCProb, issueLOC, type: String
+    let type: String
 
     enum CodingKeys: String, CodingKey, Hashable {
-        case religionProb = "religion_prob"
-        case religion
-        case ethnicityProb = "ethnicity_prob"
-        case ethnicity, features
+        case features
         case featuresProb = "features_prob"
         case issueDate = "issue_date"
         case issueDateProb = "issue_date_prob"
-        case issueLOCProb = "issue_loc_prob"
-        case issueLOC = "issue_loc"
         case type
     }
 }

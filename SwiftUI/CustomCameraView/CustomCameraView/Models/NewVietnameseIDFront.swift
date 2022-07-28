@@ -19,7 +19,6 @@ struct NewVietnameseIDFront : Codable{
 
 struct Datum: Codable, Identifiable{
 
-    
     let id, idProb, name, nameProb: String
     let dob, dobProb, sex, sexProb: String
     let nationality, nationalityProb, home, homeProb: String

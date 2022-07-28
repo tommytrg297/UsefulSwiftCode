@@ -31,9 +31,7 @@ struct ShowImage: View {
                     .font(.title)
                     .padding()
         }
-
     }
-    
 }
 
 struct ShowImage_Previews: PreviewProvider {

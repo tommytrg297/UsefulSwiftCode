@@ -38,7 +38,6 @@ struct CameraView : View {
                     Spacer()
                 }
             }
-            
             VStack{
                 if camera.isTaken {
                     Spacer()

@@ -14,7 +14,6 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var alert = false
     @Published var output = AVCapturePhotoOutput()
     @Published var preview : AVCaptureVideoPreviewLayer!
-    @Published var isSaved = false
     @Published var settings = AVCapturePhotoSettings()
     @Published var picData = Data(count: 0)
     
@@ -70,14 +69,11 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     func retakePicture(){
         DispatchQueue.global(qos: .background).async {
-//            self.imageTaken =
             self.session.startRunning()
             DispatchQueue.main.async {
                 withAnimation {
                     self.isTaken.toggle()
-                    self.isSaved = false
                 }
-                
             }
         }
     }
@@ -90,12 +86,7 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         let image = UIImage(data: imageData)
         session.stopRunning()
         self.imageTaken = image!
-
     }
     
-    func savePicture() {
-//        let image = UIImage(data: self.picData)!
-//        UIImageWriteToSavedPhotosAlbum(image,nil, nil, nil)
-//        self.isSaved = true
-    }
+
 }

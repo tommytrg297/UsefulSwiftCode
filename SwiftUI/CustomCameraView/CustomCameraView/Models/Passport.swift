@@ -12,7 +12,7 @@ import Foundation
 struct Passport : Codable {
     let errorCode: Int
     let errorMessage: String
-    let data: [Datum]
+    let data: [PassportData]
 }
 
 // MARK: - Passport data
