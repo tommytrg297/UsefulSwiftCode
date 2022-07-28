@@ -9,47 +9,37 @@ import SwiftUI
 
 struct ShowImage: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var image: UIImage
-
+    @Binding var imageTaken : UIImage
+    
     var body: some View {
         VStack{
             Text("Document")
             ZStack {
                 GeometryReader { geometry in
-                    Image(uiImage: image)
+                    Image(uiImage: imageTaken)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width,
-                               height: geometry.size.height/3)
+                               height: geometry.size.height)
                         .clipped()
-
                 }
             }
-                
+            ShowResultView(image: $imageTaken)
             Button("Press to dismiss") {
                         dismiss()
                     }
                     .font(.title)
                     .padding()
-                    .background(.black)
-
         }
+
     }
+    
 }
 
 struct ShowImage_Previews: PreviewProvider {
     static var previews: some View {
-        ShowImage(image: Binding.constant(UIImage(systemName: "person")!))
+        ShowImage(imageTaken: .constant(UIImage(systemName: "star")!))
     }
 }
 
 
-struct MaskShape : Shape {
-    var inset : UIEdgeInsets
-    
-    func path(in rect: CGRect) -> Path {
-        var shape = Rectangle().path(in: rect)
-        shape.addPath(Rectangle().path(in: rect.inset(by: inset)))
-        return shape
-    }
-}

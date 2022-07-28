@@ -46,15 +46,13 @@ struct CameraView : View {
                         Text("Tro lai")
                             .confirmationButton()
                         }
-                    
+        
                     NavigationLink {
-                        ShowImage(image: $camera.imageTaken)
-
+                        ShowImage(imageTaken: $camera.imageTaken)
                     } label: {
                         Text("Tiep tuc")
                             .confirmationButton()
                     }
-
                 }
                 else {
                     VStack{

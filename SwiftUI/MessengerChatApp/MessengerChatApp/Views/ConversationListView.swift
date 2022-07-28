@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ConversationListView: View {
     let usernames = ["Joe","Bill","Bob"]
+    @State var otherUsername : String = ""
+    @State var showChat = false
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -32,7 +35,37 @@ struct ConversationListView: View {
                 }
             }
             .navigationTitle("Conversations")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        SearchView { name in
+                            self.otherUsername = name
+                            self.showChat = true
+                        }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Sign out") {
+                        self.signOut()
+                    }
+
+                }
+            }
         }
+        if !otherUsername.isEmpty {
+            NavigationLink(isActive: $showChat) {
+                ChatView(otherUsername: otherUsername)
+            } label: {
+                Text("")
+            }
+
+        }
+        
+    }
+    
+    func signOut() {
     }
 }
 

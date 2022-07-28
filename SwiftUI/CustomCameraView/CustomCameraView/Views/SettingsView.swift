@@ -34,7 +34,7 @@ struct SettingsView: View {
                             Section {
                                 Picker("Type of document", selection: $config.OCRDocument) {
                                     ForEach(OCRDocumentType.allCases, id:\.self) { type in
-                                        Text(type.rawValue)
+                                        Text(type.id)
                                     }
                                 }
                                 .pickerStyle(.menu)

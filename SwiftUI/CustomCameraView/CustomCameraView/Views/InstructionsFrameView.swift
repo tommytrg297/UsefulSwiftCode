@@ -14,7 +14,7 @@ struct InstructionsFrameView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .padding()
                     .frame(width: proxy.frame(in: .global).width, height: proxy.frame(in: .global).height)
-                    .opacity(1)
+                    .opacity(0.5)
                     .padding()
                     .position(x: proxy.frame(in: .local).midX, y: proxy.frame(in: .local).midY)
                     .foregroundColor(.white.opacity(0.5))
@@ -35,7 +35,6 @@ struct InstructionsFrameView: View {
                 }
         }
     }
-    
 }
 
 struct InstructionsFrameView_Previews: PreviewProvider {

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct ChatView: View {
     let otherUsername : String
     init(otherUsername : String) {
@@ -25,9 +27,7 @@ struct ChatView: View {
             }
             HStack {
                 TextField("Message : ...", text: $message)
-                    .padding()
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(7)
+                    .modifier(CustomField())
                 SendButton(text: $message)
             }
         }
@@ -39,5 +39,16 @@ struct ChatView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         ChatView(otherUsername: "TOMMY")
+    }
+}
+
+
+struct CustomField : ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .padding()
+            .background(Color(.secondarySystemBackground))
+            .cornerRadius(7)
+            
     }
 }

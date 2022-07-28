@@ -46,3 +46,13 @@ extension Image {
         }
     }
 }
+
+struct MaskShape : Shape {
+    var inset : UIEdgeInsets
+    
+    func path(in rect: CGRect) -> Path {
+        var shape = Rectangle().path(in: rect)
+        shape.addPath(Rectangle().path(in: rect.inset(by: inset)))
+        return shape
+    }
+}

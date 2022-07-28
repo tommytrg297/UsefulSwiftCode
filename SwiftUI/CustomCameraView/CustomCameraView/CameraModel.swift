@@ -18,7 +18,7 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var settings = AVCapturePhotoSettings()
     @Published var picData = Data(count: 0)
     
-    @Published var imageTaken = UIImage()
+    @Published var imageTaken : UIImage = UIImage()
     
     func checkAuthorization(){
         switch AVCaptureDevice.authorizationStatus(for: .video){
@@ -52,7 +52,6 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
                 self.session.addOutput(self.output)
             }
             self.session.commitConfiguration()
-            
         } catch  {
             print(error.localizedDescription)
         }
@@ -88,13 +87,10 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             return
         }
         guard let imageData = photo.fileDataRepresentation() else { return }
-        self.picData = imageData
-        print(imageData)
-        
         let image = UIImage(data: imageData)
-        self.imageTaken = image!
         session.stopRunning()
-        APICaller.shared.APICall(imageTaken: image!)
+        self.imageTaken = image!
+
     }
     
     func savePicture() {

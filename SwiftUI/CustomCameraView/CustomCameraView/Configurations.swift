@@ -41,11 +41,23 @@ enum OCRDocumentType : String, CaseIterable, Identifiable {
     var id: String {
         self.rawValue.capitalized
     }
+    
+    var URL : String {
+        if self.rawValue == "identityCard" {
+            return "https://api.fpt.ai/vision/idr/vnm/"
+        }
+        else if self.rawValue == "driversLicence" {
+            return  "https://api.fpt.ai/vision/dlr/vnm"
+        }
+        else if self.rawValue == "driversLicence" {
+            return  "https://api.fpt.ai/vision/passport/vnm"
+        }
+        return ""
+    }
+    
     case identityCard
     case driversLicense
     case passport
-    case CMND
-    case CCCD
 }
 
 enum OCRModeType : String, CaseIterable, Identifiable {
