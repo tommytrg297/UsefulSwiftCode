@@ -55,6 +55,8 @@ enum OCRDocumentType : String, CaseIterable, Identifiable {
         return ""
     }
     
+
+    
     case identityCard
     case driversLicense
     case passport

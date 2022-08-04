@@ -15,7 +15,7 @@ final class APICaller {
     
     private init(){}
     
-    public func APICall(imageTaken:UIImage, completion : @escaping (Result<[Datum],Error>) -> Void) {
+    public func APICall(imageTaken:UIImage, completion : @escaping (Result<[NewVietnameseIDFrontData],Error>) -> Void) {
         guard let url = URL(string: "https://api.fpt.ai/vision/idr/vnm/") else {
             return 
         }
@@ -49,7 +49,7 @@ final class APICaller {
                 let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
                 completion(.success(response.data))                
             } catch  {
-                    print(error)
+                print(error)
             }
         }
         task.resume()
@@ -92,7 +92,7 @@ final class APICaller {
     public func getInformationFromDocument(
         image : UIImage,
         documentType : OCRDocumentType,
-        completion : @escaping (Result<[Datum],Error>) -> Void ) {
+        completion : @escaping (Result<[NewVietnameseIDFrontData],Error>) -> Void ) {
             
         createRequest(image: image, documentType: documentType) { request in
             let task = URLSession.shared.dataTask(with: request) { data, res, error in
@@ -103,6 +103,63 @@ final class APICaller {
                 do {
                     let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
                     completion(.success(response.data))
+                } catch  {
+                    print(error)
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    public func getInformationFromNewNationalID(
+        image : UIImage,
+        side : String, 
+        completion : @escaping (Result<[NewVietnameseIDFrontData],Error>) -> Void ) {
+            
+            createRequest(image: image, documentType: .identityCard) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, res, error in
+                guard let data = data, error == nil else {
+                    print("ERROR")
+                    return
+                }
+                do {
+                    if side == "front" {
+                        let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
+                        completion(.success(response.data))
+                    }
+//                    else if side == "back" {
+//                        let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
+//                        completion(.success(response.data))
+//                    }
+                } catch  {
+                    print(error)
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    public func getInformationFromOldNationalID(
+        image : UIImage,
+        documentType : OCRDocumentType,
+        side : String,
+        completion : @escaping (Result<[OldVietnameseIDFrontData],Error>) -> Void ) {
+            
+        createRequest(image: image, documentType: documentType) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, res, error in
+                guard let data = data, error == nil else {
+                    print("ERROR")
+                    return
+                }
+                do {
+                    if side == "front" {
+                        let response = try JSONDecoder().decode(OldVietnameseIDFront.self, from: data)
+                        completion(.success(response.data))
+                    }
+//                    else if side == "back" {
+//                        let response = try JSONDecoder().decode(OldVietnameseIDBack.self, from: data)
+//                        completion(.success(response.data))
+//                    }
                 } catch  {
                     print(error)
                 }

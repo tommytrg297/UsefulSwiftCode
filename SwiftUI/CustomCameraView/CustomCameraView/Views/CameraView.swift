@@ -15,20 +15,20 @@ struct CameraView : View {
         ZStack{
              CameraPreview(camera: camera)
                 .ignoresSafeArea()
+            GeometryReader { geometry in
+                Color.black.opacity(0.6)
+                    .mask {
+                        MaskShape(inset: UIEdgeInsets(
+                            top: geometry.size.height/3,
+                            left: geometry.size.width,
+                            bottom: geometry.size.height/3,
+                            right: geometry.size.width))
+                        .fill(style: FillStyle(eoFill: true))
+                    }
+            }
+            .ignoresSafeArea()
+            
             if !camera.isTaken{
-                GeometryReader { geometry in
-                    Color.black.opacity(0.6)
-                        .mask {
-                            MaskShape(inset: UIEdgeInsets(
-                                top: geometry.size.height/3,
-                                left: geometry.size.width,
-                                bottom: geometry.size.height/3,
-                                right: geometry.size.width))
-                            .fill(style: FillStyle(eoFill: true))
-                        }
-                }
-                .ignoresSafeArea()
-                
                 VStack {
                     Text("Scan tai lieu trong khung")
                         .background(.purple)

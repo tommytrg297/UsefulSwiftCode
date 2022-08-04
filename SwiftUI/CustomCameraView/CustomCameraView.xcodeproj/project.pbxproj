@@ -184,6 +184,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
+				ORGANIZATIONNAME = FPT;
 				TargetAttributes = {
 					65B0C1492885494E007204A9 = {
 						CreatedOnToolsVersion = 13.4.1;

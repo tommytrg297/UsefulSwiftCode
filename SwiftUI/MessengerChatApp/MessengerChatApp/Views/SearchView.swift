@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct SearchView: View {
+    @Environment(\.presentationMode) var presentationMode : Binding<PresentationMode>
     @State var text : String = ""
     let usernames = ["Julia", "Tommy"]
     let completion : ((String) -> Void)
@@ -25,17 +26,20 @@ struct SearchView: View {
                 
             }
             
-            ForEach(usernames, id: \.self) { name in
-                HStack {
-                    Circle()
-                        .frame(width: 55, height: 55)
-                        .foregroundColor(.green)
-                    Text(name)
-                        .bold()
-                    Spacer()
-                }
-                .onTapGesture {
-                    completion(name)
+            List {
+                ForEach(usernames, id: \.self) { name in
+                    HStack {
+                        Circle()
+                            .frame(width: 55, height: 55)
+                            .foregroundColor(.green)
+                        Text(name)
+                            .bold()
+                        Spacer()
+                    }
+                    .onTapGesture {
+                        presentationMode.wrappedValue.dismiss()
+                        completion(name)
+                    }
                 }
             }
             

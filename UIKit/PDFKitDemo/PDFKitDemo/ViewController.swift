@@ -16,7 +16,7 @@ class ViewController: UIViewController, PDFViewDelegate{
         super.viewDidLoad()
         
         view.addSubview(pdfView)
-        guard let url = Bundle.main.url(forResource: "pdfdoc1", withExtension: "pdf") else {
+        guard let url = Bundle.main.url(forResource: "Truong_Resume", withExtension: "pdf") else {
             return
         }
         guard let document = PDFDocument(url: url) else {
@@ -30,17 +30,7 @@ class ViewController: UIViewController, PDFViewDelegate{
             return
         }
         newDocument.insert(page, at: 0)
-        
-        pdfView.document = newDocument
-        
-        
-        
-        
-        
-        
-        
-
-        
+//        pdfView.document = newDocument
         
     }
     

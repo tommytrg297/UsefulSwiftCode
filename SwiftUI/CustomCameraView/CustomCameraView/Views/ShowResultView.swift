@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShowResultView: View {
     @Binding var image : UIImage
-    @State var data : Datum?
+    @State var data : NewVietnameseIDFrontData?
     var body: some View {
         VStack {
             List {

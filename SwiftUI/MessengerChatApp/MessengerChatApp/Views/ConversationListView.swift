@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConversationListView: View {
     let usernames = ["Joe","Bill","Bob"]
+    @EnvironmentObject var model : AppStateModel
     @State var otherUsername : String = ""
     @State var showChat = false
     
@@ -33,14 +34,24 @@ struct ConversationListView: View {
                     }
 
                 }
+                if !otherUsername.isEmpty {
+                    NavigationLink(isActive: $showChat) {
+                        ChatView(otherUsername: otherUsername)
+                    } label: {
+                        Text("")
+                    }
+                }
             }
             .navigationTitle("Conversations")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
                         SearchView { name in
-                            self.otherUsername = name
-                            self.showChat = true
+                            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                                self.otherUsername = name
+                                self.showChat = true
+                            }
+
                         }
                     } label: {
                         Image(systemName: "magnifyingglass")
@@ -53,16 +64,13 @@ struct ConversationListView: View {
 
                 }
             }
-        }
-        if !otherUsername.isEmpty {
-            NavigationLink(isActive: $showChat) {
-                ChatView(otherUsername: otherUsername)
-            } label: {
-                Text("")
+            .fullScreenCover(isPresented: $model.showingSignIn) {
+                SignInView()
             }
 
         }
-        
+
+
     }
     
     func signOut() {
