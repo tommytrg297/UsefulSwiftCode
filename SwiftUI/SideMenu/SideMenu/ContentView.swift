@@ -1,16 +1,15 @@
 //
 //  ContentView.swift
-//  ActivityIndicator
+//  SideMenu
 //
-//  Created by Truong Tommy on 7/28/22.
+//  Created by Truong Tommy on 8/5/22.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        BaseView()
     }
 }
 

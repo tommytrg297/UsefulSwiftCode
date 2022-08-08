@@ -24,7 +24,8 @@ struct ShowImage: View {
                         .clipped()
                 }
             }
-            ShowResultView(image: $imageTaken)
+            NewVietnameseIDFrontResultView(image: $imageTaken)
+//            NewVietnameseIDBackResultView(image: $imageTaken)
             Button("Press to dismiss") {
                         dismiss()
                     }

@@ -10,10 +10,8 @@
 		651E4D2527E1315100174464 /* ProgressBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651E4D2427E1315100174464 /* ProgressBarApp.swift */; };
 		651E4D2927E1315300174464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651E4D2827E1315300174464 /* Assets.xcassets */; };
 		651E4D2C27E1315300174464 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651E4D2B27E1315300174464 /* Preview Assets.xcassets */; };
-		6586431727E526B9007FAF25 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6586431627E526B9007FAF25 /* ConfettiSwiftUI */; };
 		65EE6BBD27E81D270075DAF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651E4D2627E1315100174464 /* ContentView.swift */; };
 		65EE6BC327E8225A0075DAF1 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EE6BC227E8225A0075DAF1 /* Charts.swift */; };
-		65EE6BC627E822970075DAF1 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 65EE6BC527E822970075DAF1 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +28,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6586431727E526B9007FAF25 /* ConfettiSwiftUI in Frameworks */,
-				65EE6BC627E822970075DAF1 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +87,6 @@
 			);
 			name = ProgressBar;
 			packageProductDependencies = (
-				6586431627E526B9007FAF25 /* ConfettiSwiftUI */,
-				65EE6BC527E822970075DAF1 /* SwiftUICharts */,
 			);
 			productName = ProgressBar;
 			productReference = 651E4D2127E1315100174464 /* ProgressBar.app */;
@@ -374,19 +368,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6586431627E526B9007FAF25 /* ConfettiSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6586431527E526B9007FAF25 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
-			productName = ConfettiSwiftUI;
-		};
-		65EE6BC527E822970075DAF1 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 65EE6BC427E822970075DAF1 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
-			productName = SwiftUICharts;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 651E4D1927E1315100174464 /* Project object */;
 }

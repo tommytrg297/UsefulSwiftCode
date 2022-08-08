@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     @State var dailyUsers = 56
     @State private var maximumDailyUser = 64

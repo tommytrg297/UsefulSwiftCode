@@ -113,9 +113,7 @@ final class APICaller {
     
     public func getInformationFromNewNationalID(
         image : UIImage,
-        side : String, 
         completion : @escaping (Result<[NewVietnameseIDFrontData],Error>) -> Void ) {
-            
             createRequest(image: image, documentType: .identityCard) { request in
             let task = URLSession.shared.dataTask(with: request) { data, res, error in
                 guard let data = data, error == nil else {
@@ -123,14 +121,8 @@ final class APICaller {
                     return
                 }
                 do {
-                    if side == "front" {
                         let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
                         completion(.success(response.data))
-                    }
-//                    else if side == "back" {
-//                        let response = try JSONDecoder().decode(NewVietnameseIDFront.self, from: data)
-//                        completion(.success(response.data))
-//                    }
                 } catch  {
                     print(error)
                 }
@@ -138,6 +130,30 @@ final class APICaller {
             task.resume()
         }
     }
+    
+    public func getInformationFromNewNationalIDBack(
+        image : UIImage,
+        completion : @escaping (Result<[NewVietnameseIDBackData],Error>) -> Void ) {
+            createRequest(image: image, documentType: .identityCard) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, res, error in
+                guard let data = data, error == nil else {
+                    print("ERROR")
+                    return
+                }
+                do {
+                        let response = try JSONDecoder().decode(NewVietnameseIDBack.self, from: data)
+                        completion(.success(response.data))
+                } catch  {
+                    print(error)
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    
+    
+    
     
     public func getInformationFromOldNationalID(
         image : UIImage,

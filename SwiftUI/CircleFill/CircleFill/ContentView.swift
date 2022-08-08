@@ -32,12 +32,13 @@ struct ContentView: View {
             withAnimation(.easeInOut(duration: 2)) {
                 progress += 0.1
             }
-            for x in 0...100 {
-                DispatchQueue.main.asyncAfter(deadline: .now()+TimeInterval(x/10)) {
-                    self.progress += 0.01
-                }
-            }
+//            for x in 0...100 {
+//                DispatchQueue.main.asyncAfter(deadline: .now()+TimeInterval(x/10)) {
+//                    self.progress += 0.01
+//                }
+//            }
         }
+        .ignoresSafeArea()
     }
 }
 
