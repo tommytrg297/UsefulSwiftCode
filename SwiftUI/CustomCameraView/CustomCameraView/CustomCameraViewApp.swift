@@ -9,14 +9,7 @@ import SwiftUI
 
  @main
 struct CustomCameraViewApp: App {
-    var config : Configuration = Configuration(
-        APIKey: "",
-        OCRType: .photo,
-        OCRDocument: .passport,
-        captureMode: .manual,
-        color: .purple,
-        showFinalScreenResult: false,
-        submitResultToFPTServer: false)
+    var config : Configuration = Configuration()
     
     var body: some Scene {
         WindowGroup {

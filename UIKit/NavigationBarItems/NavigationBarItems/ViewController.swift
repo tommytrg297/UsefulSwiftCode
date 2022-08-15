@@ -40,23 +40,23 @@ class ViewController: UIViewController {
             target: self,
             action: nil)
             ]
-//
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "gear"),
-//            style: .plain,
-//            target: self,
-//            action: nil)
-//
-//        let customView = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-//        customView.text = "Hello"
-//        customView.textAlignment = .center
-//        customView.backgroundColor = .orange
-//        customView.layer.cornerRadius = 8
-//        customView.layer.masksToBounds = true
-//
-//            self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-//                customView: customView
-//            )
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "gear"),
+            style: .plain,
+            target: self,
+            action: nil)
+
+        let customView = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        customView.text = "Hello"
+        customView.textAlignment = .center
+        customView.backgroundColor = .orange
+        customView.layer.cornerRadius = 8
+        customView.layer.masksToBounds = true
+
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+                customView: customView
+            )
         
 
         

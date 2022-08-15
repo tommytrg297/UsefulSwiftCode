@@ -9,19 +9,17 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-    //RPI!
     @StateObject private var viewModel = ContentViewModel()
     
     var body: some View {
         Map(coordinateRegion: $viewModel.region,showsUserLocation: true)
+            .frame(maxWidth: UIScreen.main.bounds.width,
+                   maxHeight: UIScreen.main.bounds.height)
             .ignoresSafeArea()
-            .tint(.red)
             .onAppear {
                 viewModel.checkIfLocationServicesIsEnabled()
             }
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -29,5 +27,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-

@@ -1,47 +1,62 @@
 //// GET , POST
 import UIKit
 import Foundation
-import PlaygroundSupport
+
+
+struct Result: Codable {
+    let color: String
+    let damages: [Damage]
+    let license_plate, manufacturer, model, total_cost: String
+
+    enum CodingKeys: String, CodingKey {
+        case color, damages
+        case license_plate
+        case manufacturer, model
+        case total_cost
+    }
+}
+
+// MARK: - Damage
+struct Damage: Codable {
+    let data: [Datum]
+    let images: String
+}
+
+// MARK: - Datum
+struct Datum: Codable {
+    let cost, part, severity, type: String
+}
+
 
 func APICall() {
-    guard let url = URL(string: "https://api.fpt.ai/vision/idr/vnm/") else {
+    guard let url = URL(string: "http://54.95.116.100:80/detect") else {
         return
     }
     var request = URLRequest(url: url)
-    //method, body
     request.httpMethod = "POST"
-    request.setValue("8DBTkyF9lLOUXwcggAK9lWDTIxJoIkt6", forHTTPHeaderField: "api-key")
 
-    /// SET LINE HERE
+    let image1 = UIImage(named: "dent_rear_bumper_car.jpg")
+    let image1Data = image1?.jpegData(compressionQuality: 1)?.base64EncodedString()
 
-    let image = UIImage(named: "cccdPhat.jpeg")
-    let imageData = image?.jpegData(compressionQuality: 0.5)
+    let image2 = UIImage(named: "dent_behind.png")
+    let image2Data = image2?.pngData()?.base64EncodedString()
     
-    let boundary = UUID().uuidString
-    request.setValue("multipart/form-data; boundary=\(boundary)",
-                        forHTTPHeaderField: "Content-Type")
-    var data = Data()
+    let json  = [
+        "file1" : image1Data,
+        "file2" : image2Data
+    ]
+    let jsondata = try? JSONSerialization.data(withJSONObject: json)
 
-    // Add the image data to the raw http request data
-    data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-    data.append("Content-Disposition: form-data; name=\"image\"; filename=\"cccd.jpeg\"\r\n".data(using: .utf8)!)
-    data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
-    data.append(imageData!)
-
-    data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+    request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+    request.httpBody = jsondata
     
-    request.httpBody = data
-
-    //request.httpBody = try? JSONSerialization.data(withJSONObject: param as Any , options: .fragmentsAllowed)
-
-    // make request
     let task = URLSession.shared.dataTask(with: request) { data, res, error in
         guard let data = data, error == nil else {
             print("ERROR")
             return
         }
         do {
-            let response = try JSONSerialization.jsonObject(with: data,options: .fragmentsAllowed)
+            let response = try JSONDecoder().decode(Result.self, from: data)
             print("\(response)")
         } catch  {
             print(error)

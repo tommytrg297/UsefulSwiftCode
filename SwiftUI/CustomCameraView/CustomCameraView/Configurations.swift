@@ -9,24 +9,24 @@ import SwiftUI
 
 class Configuration : Identifiable, ObservableObject {
     @Published var id = UUID()
-    @Published var APIKey : String
-    @Published var OCRType : OCRType
-    @Published var OCRDocument : OCRDocumentType
-    @Published var captureMode : OCRModeType
-    @Published var color : Color
-    @Published var showFinalScreenResult : Bool
-    @Published var submitResultToFPTServer : Bool
+    @Published var APIKey : String = ""
+    @Published var OCRType : OCRType = .photo
+    @Published var OCRDocument : OCRDocumentType = .identityCard
+    @Published var captureMode : OCRModeType = .manual
+    @Published var color : Color = .blue
+    @Published var showFinalScreenResult : Bool = false
+    @Published var submitResultToFPTServer : Bool = false
     
-    init(APIKey : String, OCRType : OCRType, OCRDocument : OCRDocumentType, captureMode : OCRModeType,
-         color : Color, showFinalScreenResult : Bool, submitResultToFPTServer : Bool) {
-        self.APIKey = APIKey
-        self.OCRType = OCRType
-        self.OCRDocument = OCRDocument
-        self.captureMode = captureMode
-        self.color = color
-        self.showFinalScreenResult = showFinalScreenResult
-        self.submitResultToFPTServer = submitResultToFPTServer
-    }
+//    init(APIKey : String, OCRType : OCRType, OCRDocument : OCRDocumentType, captureMode : OCRModeType,
+//         color : Color, showFinalScreenResult : Bool, submitResultToFPTServer : Bool) {
+//        self.APIKey = APIKey
+//        self.OCRType = OCRType
+//        self.OCRDocument = OCRDocument
+//        self.captureMode = captureMode
+//        self.color = color
+//        self.showFinalScreenResult = showFinalScreenResult
+//        self.submitResultToFPTServer = submitResultToFPTServer
+//    }
 }
 
 enum OCRType : String, CaseIterable, Identifiable {

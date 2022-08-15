@@ -6,30 +6,28 @@
 //
 import MapKit
 
+
 enum MapDetails {
-    static let startingLocation = CLLocationCoordinate2D(latitude: 42.7298, longitude: -73.6789)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta:0.02, longitudeDelta: 0.02)
+    static let startingLocation = CLLocationCoordinate2D(latitude: 21.0278, longitude: 105.8342)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta:0.15, longitudeDelta: 0.15)
 }
 
 final class ContentViewModel:NSObject,ObservableObject, CLLocationManagerDelegate{
     
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
-    var locationManager : CLLocationManager?
+    var locationManager =  CLLocationManager()
      
     func checkIfLocationServicesIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
+            locationManager.delegate = self
         } else  {
             print ("WTF")
         }
     }
     
     private func checkLocationAuthorization() {
-        guard let locationManager = locationManager else {return}
-        
         switch locationManager.authorizationStatus {
-            
+    
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
@@ -37,8 +35,9 @@ final class ContentViewModel:NSObject,ObservableObject, CLLocationManagerDelegat
         case .denied:
             print("Your location is denied, change it!")
         case .authorizedAlways,.authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location?.coordinate ?? MapDetails.startingLocation  ,
-                                        span: MapDetails.defaultSpan)
+            locationManager.requestLocation()
+            print(locationManager.location)
+            region.center = locationManager.location?.coordinate ?? MapDetails.startingLocation
         @unknown default:
             break
         }
@@ -49,5 +48,13 @@ final class ContentViewModel:NSObject,ObservableObject, CLLocationManagerDelegat
         checkLocationAuthorization()
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        region = MKCoordinateRegion(center: locations.last!.coordinate ,
+                                    span: MapDetails.defaultSpan)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
     
 }
