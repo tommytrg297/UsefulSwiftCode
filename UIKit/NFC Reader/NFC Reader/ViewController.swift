@@ -26,7 +26,8 @@ class ViewController: UIViewController, NFCNDEFReaderSessionDelegate {
             queue: nil,
             invalidateAfterFirstRead: true)
         NFCSession?.begin()
-        
+       
+    
     }
     
     override func didReceiveMemoryWarning() {

@@ -130,10 +130,10 @@
 		65FB1BBB288117CE0022DD0A /* SecretsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				65FB1BBC288117CE0022DD0A /* AppDelegate.swift */,
 				65FB1BBE288117CE0022DD0A /* SceneDelegate.swift */,
 				65FB1BC0288117CE0022DD0A /* ViewController.swift */,
 				65FB1BC2288117CE0022DD0A /* Main.storyboard */,
+				65FB1BBC288117CE0022DD0A /* AppDelegate.swift */,
 				65FB1BC5288117D00022DD0A /* Assets.xcassets */,
 				65FB1BC7288117D00022DD0A /* LaunchScreen.storyboard */,
 				65FB1BCA288117D00022DD0A /* Info.plist */,

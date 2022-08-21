@@ -87,6 +87,4 @@ class CameraModel : NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         session.stopRunning()
         self.imageTaken = image!
     }
-    
-
 }

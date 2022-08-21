@@ -11,7 +11,6 @@ import SwiftUI
 
 final class APICaller {
     static let shared = APICaller()
-    //image | API key | config | createData
     
     private init(){}
     
@@ -64,8 +63,8 @@ final class APICaller {
     private func createRequest(
         image : UIImage,
         documentType : OCRDocumentType,
-        completion : @escaping (URLRequest) -> Void
-    ) {
+        completion : @escaping (URLRequest) -> Void) {
+            
         let url = URL(string: documentType.URL)
         var request = URLRequest(url: url!)
         //method, body
@@ -92,7 +91,7 @@ final class APICaller {
     public func getInformationFromDocument(
         image : UIImage,
         documentType : OCRDocumentType,
-        completion : @escaping (Result<[NewVietnameseIDFrontData],Error>) -> Void ) {
+        completion : @escaping (Result<[NewVietnameseIDFrontData],Error>) -> Void) {
             
         createRequest(image: image, documentType: documentType) { request in
             let task = URLSession.shared.dataTask(with: request) { data, res, error in
